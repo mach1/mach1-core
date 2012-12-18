@@ -9,6 +9,9 @@
 	Hello world!  
 </h1>
 
+	Customer:
+	${customer.getFirstName()}<br>
+	${customer.getLastName()}<br>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
