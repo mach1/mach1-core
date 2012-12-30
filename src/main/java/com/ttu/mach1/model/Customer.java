@@ -1,8 +1,11 @@
 package com.ttu.mach1.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 public class Customer {
@@ -30,6 +33,19 @@ public class Customer {
 	private Integer cstType;
 	@Column(name = "cst_state_type")
 	private Integer cstStateType;
+
+	// private Set<CustomerAddress> addresses = new HashSet<CustomerAddress>(0);
+
+	// @OneToMany(fetch = FetchType.EAGER, targetEntity = CustomerAddress.class)
+	// @JoinTable(name = "cst_address", joinColumns = { @JoinColumn(name =
+	// "customer") }, inverseJoinColumns = { @JoinColumn(name = "customer") })
+	// public Set<CustomerAddress> getAddresses() {
+	// return addresses;
+	// }
+
+	// public void setAddresses(Set<CustomerAddress> addresses) {
+	// this.addresses = addresses;
+	// }
 
 	public Long getId() {
 		return id;

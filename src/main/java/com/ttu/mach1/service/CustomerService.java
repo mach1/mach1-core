@@ -1,5 +1,7 @@
 package com.ttu.mach1.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,5 +23,9 @@ public class CustomerService {
 
 	public Customer findCustomer(Long id) {
 		return customerDao.find(id);
+	}
+
+	public List<Customer> findAll() {
+		return customerDao.findAll();
 	}
 }
