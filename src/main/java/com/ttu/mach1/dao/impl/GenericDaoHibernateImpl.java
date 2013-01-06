@@ -22,7 +22,7 @@ public class GenericDaoHibernateImpl<T, PK extends Serializable> implements
 		this.type = type;
 	}
 
-	private Session currentSession() {
+	public Session currentSession() {
 		return sessionFactory.getCurrentSession();
 	}
 

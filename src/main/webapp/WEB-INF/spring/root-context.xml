@@ -13,7 +13,8 @@
 	<bean class="com.ttu.mach1.servlet.filter.JsonpCallbackFilter" id="jsonpCallbackFilter" />
 
 	<bean id="customerDao" class="com.ttu.mach1.dao.impl.CustomerDaoHibernateImpl" />
-
+	<bean id="customerAddressDao" class="com.ttu.mach1.dao.impl.CustomerAddressDaoHibernateImpl" />
+	<bean id="contractDao" class="com.ttu.mach1.dao.impl.ContractDaoHibernateImpl" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">

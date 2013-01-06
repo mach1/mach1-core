@@ -16,9 +16,9 @@ public class CustomerAddress {
 	@GeneratedValue
 	@Column(name = "cst_address")
 	private Long id;
-	@ManyToOne
-	@JoinColumn(name = "customer")
-	private Customer customer;
+	// @ManyToOne
+	// @JoinColumn(name = "customer")
+	private Long customer;
 
 	private String zip;
 	private String house;
@@ -51,11 +51,11 @@ public class CustomerAddress {
 		this.id = id;
 	}
 
-	public Customer getCustomer() {
+	public Long getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(Long customer) {
 		this.customer = customer;
 	}
 

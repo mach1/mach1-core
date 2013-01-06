@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.ttu.mach1.model.Customer;
+import com.ttu.mach1.model.CustomerAddress;
 import com.ttu.mach1.service.CustomerService;
 
 @Controller
@@ -33,7 +34,7 @@ public class CustomerController {
 	public @ResponseBody
 	Customer postCustomer(@RequestBody Customer customer, Locale locale,
 			Model model) {
-		System.out.println("ok");
+		System.out.println("post");
 		return customerService.createCustomer(customer);
 	}
 
@@ -43,17 +44,19 @@ public class CustomerController {
 		return customerService.findCustomer(id);
 	}
 
+	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/customers/customer/{id}", method = RequestMethod.PUT)
+	public @ResponseBody
+	Customer updateCustomer(@RequestBody Customer customer,
+			@PathVariable Long id, Locale locale, Model model) {
+		System.out.println(customer);
+		System.out.println("put");
+		return customerService.updateCustomer(customer);
+	}
+
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/customers", method = RequestMethod.GET)
 	public @ResponseBody
 	List<Customer> getCustomer(HttpServletRequest request,
 			HttpServletResponse response, Locale locale, Model model) {
 		return customerService.findAll();
-	}
-
-	@RequestMapping(value = "/customer/{id}/addresses", method = RequestMethod.GET)
-	public @ResponseBody
-	Customer getCustomerAddresses(@PathVariable Long id, Locale locale,
-			Model model) {
-		return customerService.findCustomer(id);
 	}
 }

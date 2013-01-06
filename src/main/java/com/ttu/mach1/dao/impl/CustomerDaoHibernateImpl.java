@@ -1,7 +1,5 @@
 package com.ttu.mach1.dao.impl;
 
-import org.springframework.stereotype.Component;
-
 import com.ttu.mach1.dao.CustomerDao;
 import com.ttu.mach1.model.Customer;
 
