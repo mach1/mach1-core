@@ -34,13 +34,15 @@ public class CustomerController {
 	public @ResponseBody
 	Customer postCustomer(@RequestBody Customer customer, Locale locale,
 			Model model) {
-		System.out.println("post");
+		logger.info("/customers POST request");
+		logger.info(customer.toString());
 		return customerService.createCustomer(customer);
 	}
 
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/customers/customer/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	Customer getCustomer(@PathVariable Long id, Locale locale, Model model) {
+		logger.info("/customers/" + id + " GET request");
 		return customerService.findCustomer(id);
 	}
 
@@ -48,8 +50,8 @@ public class CustomerController {
 	public @ResponseBody
 	Customer updateCustomer(@RequestBody Customer customer,
 			@PathVariable Long id, Locale locale, Model model) {
-		System.out.println(customer);
-		System.out.println("put");
+		logger.info("/customers PUT request");
+		logger.info(customer.toString());
 		return customerService.updateCustomer(customer);
 	}
 
@@ -57,6 +59,7 @@ public class CustomerController {
 	public @ResponseBody
 	List<Customer> getCustomer(HttpServletRequest request,
 			HttpServletResponse response, Locale locale, Model model) {
+		logger.info("/customers GET request");
 		return customerService.findAll();
 	}
 }

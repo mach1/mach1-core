@@ -33,6 +33,8 @@ public class ContractController {
 			Locale locale, Model model) {
 		List<Contract> contracts = contractService
 				.findCustomerContracts(customerId);
+		logger.info("/contracts?customerId=" + customerId + " GET request");
+		logger.info(contracts.toString());
 		return contracts;
 	}
 
@@ -40,6 +42,8 @@ public class ContractController {
 	public @ResponseBody
 	Contract postContract(@RequestBody Contract contract, Locale locale,
 			Model model) {
+		logger.info("/contracts POST request");
+		logger.info(contract.toString());
 		return contractService.createContract(contract);
 	}
 
@@ -47,12 +51,15 @@ public class ContractController {
 	public @ResponseBody
 	Contract updateContract(@RequestBody Contract contract,
 			@PathVariable Long id, Locale locale, Model model) {
+		logger.info("/contracts/" + id + " PUT request");
+		logger.info(contract.toString());
 		return contractService.updateContract(contract);
 	}
 
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/contracts/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	Contract getCustomer(@PathVariable Long id, Locale locale, Model model) {
+		logger.info("/contracts/" + id + " GET request");
 		return contractService.find(id);
 	}
 }

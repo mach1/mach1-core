@@ -33,6 +33,7 @@ public class AddressController {
 	public @ResponseBody
 	List<CustomerAddress> getCustomerAddresses(@RequestParam Long customerId,
 			Locale locale, Model model) {
+		logger.info("/addresses GET request");
 		List<CustomerAddress> addresses = customerAddressService
 				.findCustomerAddresses(customerId);
 		return addresses;
@@ -42,6 +43,8 @@ public class AddressController {
 	public @ResponseBody
 	CustomerAddress postAddress(@RequestBody CustomerAddress address,
 			Locale locale, Model model) {
+		logger.info("/addresses POST request");
+		logger.info(address.toString());
 		return customerAddressService.createAddress(address);
 	}
 
@@ -49,12 +52,15 @@ public class AddressController {
 	public @ResponseBody
 	CustomerAddress updateAddress(@RequestBody CustomerAddress address,
 			@PathVariable Long id, Locale locale, Model model) {
+		logger.info("/addresses/" + id + " PUT request");
+		logger.info(address.toString());
 		return customerAddressService.updateAddress(address);
 	}
 
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/addresses/{id}", method = RequestMethod.GET)
 	public @ResponseBody
 	CustomerAddress getAddress(@PathVariable Long id, Locale locale, Model model) {
+		logger.info("/addresses/" + id + " GET request");
 		return customerAddressService.find(id);
 	}
 }
