@@ -33,6 +33,10 @@ public class ContractService {
 		return contractDao.findAll();
 	}
 
+	public Contract find(Long id) {
+		return contractDao.find(id);
+	}
+
 	public List<Contract> findCustomerContracts(Long customerId) {
 		return contractDao.findContractsByCustomerId(customerId);
 	}

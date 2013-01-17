@@ -7,7 +7,7 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
+@Entity(name="customer")
 public class Customer {
 
 	@Id
