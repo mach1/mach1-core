@@ -37,11 +37,11 @@ public class AddressController {
 				.findCustomerAddresses(customerId);
 		return addresses;
 	}
-	
+
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE, value = "/addresses", method = RequestMethod.POST)
 	public @ResponseBody
-	CustomerAddress postAddress(@RequestBody CustomerAddress address, Locale locale,
-			Model model) {
+	CustomerAddress postAddress(@RequestBody CustomerAddress address,
+			Locale locale, Model model) {
 		return customerAddressService.createAddress(address);
 	}
 
